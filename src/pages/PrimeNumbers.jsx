@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React from "react";
+import { useState } from "react";
 
 function PrimeNumbers() {
   const [input, setInput] = useState(1);
@@ -6,24 +7,24 @@ function PrimeNumbers() {
   const checkIfPrimeNumber = (number) => {
     let isPrime = true;
 
-    // Check Number
+    // Check if letter or null
     if (isNaN(number) || !number) {
       return "Please enter a number";
     }
 
     // Check if less than 1
-    else if (number < 1) {
-      return "The number is NOT a Prime Number.";
+    else if (parseInt(number) < 1) {
+      return "The number is NOT a prime number";
     }
 
     // Check if equal to 1
     else if (parseInt(number) === 1) {
-      return "1 is neither prime nor a composite number.";
+      return "1 is neither prime nor composite number";
     }
 
-    // Check if numbe is greater than 1
+    // Check if number is greater than 1
     else {
-      for (let i = 2; i < number; i++) {
+      for (let i = 2; i < parseInt(number); i++) {
         if (parseInt(number) % i === 0) {
           isPrime = false;
           break;
@@ -34,7 +35,6 @@ function PrimeNumbers() {
         ? `${number} is a prime number`
         : `${number} is NOT a prime number`;
     }
-    return "testing";
   };
 
   return (
@@ -46,9 +46,7 @@ function PrimeNumbers() {
             type="text"
             placeholder="Input"
             value={input}
-            onChange={(e) => {
-              setInput(e.target.value);
-            }}
+            onChange={(e) => setInput(e.target.value)}
           />
         </div>
         <div className="col-md-5">
@@ -58,7 +56,7 @@ function PrimeNumbers() {
             placeholder="Output"
             readOnly={true}
             value={checkIfPrimeNumber(input)}
-          ></textarea>
+          />
         </div>
       </div>
     </div>
