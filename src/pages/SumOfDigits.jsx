@@ -11,7 +11,6 @@ function SumOfDigits() {
         total = total + parseInt(data);
       }
     });
-
     return total;
   };
 

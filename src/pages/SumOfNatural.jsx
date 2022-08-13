@@ -5,45 +5,36 @@ function SumOfNatural() {
   const [input, setInput] = useState("");
 
   const getSumOfNatural = () => {
-    // Check if letter or null
     if (isNaN(input) || !input) {
       return "Please enter a number";
     }
 
-    let sum = 0;
+    let total = 0;
     for (let i = 1; i <= input; i++) {
-      sum = sum + i;
+      total = total + i;
     }
 
-    return sum;
+    return total;
   };
 
   return (
-    <div className="container p-5">
+    <div className=" container p-5">
       <div className="row">
-        <div className="col-md-5">
+        <div className="col-12 w-58 pb-5">
           <input
             type="text"
-            className="w-100 lead"
-            placeholder="Input"
+            className="w-180 lead"
             value={input}
-            onChange={(e) => setInput(e.target.value)}
+            onChange={(event) => {
+              setInput(event.target.value);
+            }}
           />
         </div>
-        <div className="col-md-5">
-          <textarea
-            name="text"
-            id="text"
-            cols="30"
-            rows="10"
-            readOnly={true}
-            placeholder="Output"
-            value={getSumOfNatural()}
-          />
+        <div>
+          <h1 className="text-primary">{getSumOfNatural()}</h1>
         </div>
       </div>
     </div>
   );
 }
-
 export default SumOfNatural;

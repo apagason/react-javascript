@@ -1,17 +1,22 @@
 import React from "react";
 import { useState } from "react";
 
-function Strings() {
+function CheckWithin100to500() {
   const [input, setInput] = useState("");
 
-  const getReverseString = () => {
-    return input
-      .split("")
-      .reverse("")
-      .join("")
-      .split(" ")
-      .reverse("")
-      .join(" ");
+  const getNumber = () => {
+    if (isNaN(input) || !input) {
+      return "Please enter a number";
+    }
+
+    let isWithin = "false";
+    for (let i = 100; i <= 500; i++) {
+      if (i === parseInt(input)) {
+        isWithin = "true";
+      }
+    }
+
+    return isWithin;
   };
 
   return (
@@ -28,11 +33,11 @@ function Strings() {
           />
         </div>
         <div>
-          <h1 className="text-primary">{getReverseString()}</h1>
+          <h1 className="text-primary">{getNumber()}</h1>
         </div>
       </div>
     </div>
   );
 }
 
-export default Strings;
+export default CheckWithin100to500;
