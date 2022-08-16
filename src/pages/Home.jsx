@@ -47,6 +47,9 @@ function Home() {
         <li className="list-group-item list-group-item-secondary">
           <Link to="/number-triangle">Number Triangle</Link>
         </li>
+        <li className="list-group-item list-group-item-secondary">
+          <Link to="/random-name-generator">Random Name Generator</Link>
+        </li>
       </ol>
     </div>
   );
